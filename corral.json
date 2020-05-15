@@ -1,0 +1,9 @@
+{
+  "deps": [
+    {
+      "locator": "github.com/ponylang/peg",
+      "version": "0.1.0"
+    }
+  ],
+  "info": {}
+}

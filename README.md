@@ -1,6 +1,6 @@
 # rfc-tool
 
-A tool for modifying the "standard pony" changelog
+A tool for modifying Pony RFCs
 
 ## Status
 
@@ -18,3 +18,30 @@ cd rfc-tool
 make
 sudo make install
 ```
+
+# Usage
+
+## Verify an RFC
+
+```console
+$ rfc-tool verify tests/rfc-pre.md
+tests/rfc-pre.md is a valid RFC
+```
+
+## Complete an RFC
+
+```console
+$ rfc-tool complete tests/rfc-pre.md \
+  https://github.com/ponylang/rfcs/pull/0000 \
+  https://github.com/ponylang/ponyc/issues/0000
+```
+```markdown
+- Feature Name: foo-bar-foobar
+- Start Date: 2016-05-22
+- RFC PR: https://github.com/ponylang/rfcs/pull/0000
+- Pony Issue: https://github.com/ponylang/ponyc/issues/0000
+
+...
+```
+
+Use the `--edit` option to modify the file in place.

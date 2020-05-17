@@ -71,7 +71,7 @@ GEN_FILES = $(patsubst %.pony.in, %.pony, $(GEN_FILES_IN))
 	sed s/%%VERSION%%/$(version)/ $< > $@
 
 $(binary): $(GEN_FILES) $(SOURCE_FILES) | $(BUILD_DIR)
-  $(FETCH_DEPS_WITH)
+	$(FETCH_DEPS_WITH)
 	$(PONYC) -o $(BUILD_DIR) $(SRC_DIR)
 
 install: $(binary)
@@ -80,12 +80,8 @@ install: $(binary)
 	cp $^ $(DESTDIR)$(prefix)/bin
 
 test: $(binary)
-  $(FETCH_DEPS_WITH)
-	cd tests && \
-		$(COMPILE_WITH) -d -V1 && ./tests && \
-		rm tests && \
-		sh verification.sh && \
-		cd ..
+	$(binary) tests/rfc-pre.md
+	$(binary) tests/rfc-post.md
 
 clean:
 	$(CLEAN_DEPS_WITH)
@@ -97,7 +93,3 @@ $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 .PHONY: all clean install test
-
-
-
-

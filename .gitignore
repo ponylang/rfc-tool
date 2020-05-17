@@ -1,0 +1,6 @@
+.DS_Store
+*.dSYM
+/build/
+/rfc-tool/version.pony
+_corral/
+_repos/

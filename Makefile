@@ -80,8 +80,13 @@ install: $(binary)
 	cp $^ $(DESTDIR)$(prefix)/bin
 
 test: $(binary)
-	$(binary) tests/rfc-pre.md
-	$(binary) tests/rfc-post.md
+	test "$(shell $(binary) version)" = "rfc-tool $(shell cat VERSION)"
+	$(binary) verify tests/rfc-pre.md
+	$(binary) verify tests/rfc-post.md
+	$(binary) complete tests/rfc-pre.md \
+		https://github.com/ponylang/rfcs/pull/0000 \
+		https://github.com/ponylang/ponyc/issues/0000 \
+		| diff -B tests/rfc-post.md -
 
 clean:
 	$(CLEAN_DEPS_WITH)

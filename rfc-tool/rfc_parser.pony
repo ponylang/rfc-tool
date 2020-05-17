@@ -23,17 +23,21 @@ primitive RFCParser
     end
 
   fun pr(): Parser val =>
+    recover -L("- RFC PR:") * (-L(" ") * pr_url()).opt() * -L("\n") end
+
+  fun pr_url(): Parser val =>
     recover
       let url_base = "https://github.com/ponylang/rfcs/pull/"
-      let complete = -L(" ") * (L(url_base) * digits()).term(PR)
-      -L("- RFC PR:") * complete.opt() * -L("\n")
+      (L(url_base) * digits()).term(PR)
     end
 
   fun issue(): Parser val =>
+    recover -L("- Pony Issue:") * (-L(" ") * issue_url()).opt() * -L("\n") end
+
+  fun issue_url(): Parser val =>
     recover
       let url_base = "https://github.com/ponylang/ponyc/issues/"
-      let complete = -L(" ") * (L(url_base) * digits()).term(Issue)
-      -L("- Pony Issue:") * complete.opt() * -L("\n")
+      (L(url_base) * digits()).term(Issue)
     end
 
   fun alphanum(): Parser val =>

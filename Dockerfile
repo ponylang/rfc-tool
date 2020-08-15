@@ -13,7 +13,7 @@ WORKDIR /src/rfc-tool
 RUN make arch=x86-64 static=true linker=bfd \
  && make install
 
-FROM alpine:3.11
+FROM alpine:3.12
 
 COPY --from=build /usr/local/bin/rfc-tool /usr/local/bin/rfc-tool
 

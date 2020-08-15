@@ -12,4 +12,5 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Changed
 
+- Update Dockerfile to Alpine 3.12 ([PR #2](https://github.com/ponylang/rfc-tool/pull/2))
 

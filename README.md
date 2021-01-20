@@ -4,8 +4,6 @@ A tool for modifying Pony RFCs
 
 ## Status
 
-[![Actions Status](https://github.com/ponylang/rfc-tool/workflows/vs-ponyc-latest/badge.svg)](https://github.com/ponylang/rfc-tool/actions)
-
 Production ready.
 
 ## Installation

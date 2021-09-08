@@ -4,6 +4,8 @@ on:
   push:
     tags: release-\d+.\d+.\d+
 
+concurrency: prepare-for-a-release
+
 jobs:
   start-a-release:
     name: Start a release

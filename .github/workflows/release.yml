@@ -5,6 +5,8 @@ on:
     tags:
       - \d+.\d+.\d+
 
+concurrency: release
+
 jobs:
   x86-64-unknown-linux-release:
     name: Build and upload x86-64-unknown-linux-release to Cloudsmith

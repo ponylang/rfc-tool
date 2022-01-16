@@ -8,18 +8,9 @@ actor Main
 
   new create(env: Env) =>
     _env = consume env
-
-    let auth =
-      try
-        _env.root as AmbientAuth
-      else
-        err("environment does not have ambient authority")
-        return
-      end
-
     try
       match CommandParser(cli()?).parse(_env.args, _env.vars)
-      | let c: Command => run(auth, c)
+      | let c: Command => run(_env.root, c)
       | let h: CommandHelp => _env.out.print(h.help_string())
       | let e: SyntaxError =>
         _env.out.print(e.string())

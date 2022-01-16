@@ -2,7 +2,7 @@ FROM ponylang/ponyc:release-alpine AS build
 
 WORKDIR /src/rfc-tool
 
-COPY Makefile LICENSE VERSION corral.json lock.json /src/rfc-tool/
+COPY Makefile LICENSE VERSION corral.json /src/rfc-tool/
 
 WORKDIR /src/rfc-tool/rfc-tool
 

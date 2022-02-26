@@ -54,7 +54,7 @@ actor Main
       end
 
       if cmd.option("edit").bool() then
-        File(FilePath(auth, filepath))
+        File(FilePath(FileAuth(auth), filepath))
           .> set_length(0)
           .> write(rfc.string())
           .> flush()
@@ -68,7 +68,7 @@ actor Main
     end
 
   fun parse_file(auth: AmbientAuth, filepath: String): peg.AST ? =>
-    let source = peg.Source(FilePath(auth, filepath))?
+    let source = peg.Source(FilePath(FileAuth(auth), filepath))?
     try return parse(RFCParser(), source)?
     else
       err("unable to parse file: " + filepath)

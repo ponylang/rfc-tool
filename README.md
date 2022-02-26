@@ -1,6 +1,5 @@
 # rfc-tool
 
-
 A tool for modifying Pony RFCs
 
 ## Status

@@ -14,7 +14,7 @@ jobs:
     container:
       image: ponylang/shared-docker-ci-x86-64-unknown-linux-builder:release
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Build and upload
         run: bash .ci-scripts/release/x86-64-unknown-linux-release.bash
         env:
@@ -24,7 +24,7 @@ jobs:
     name: Build and push release Docker images
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Docker login
         run: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
         env:
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [x86-64-unknown-linux-release, build-release-docker-images]
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Trigger
         uses: ponylang/release-bot-action@0.3.3
         with:

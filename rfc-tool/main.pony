@@ -9,7 +9,7 @@ actor Main
   new create(env: Env) =>
     _env = consume env
     try
-      match CommandParser(cli()?).parse(_env.args, _env.vars)
+      match \exhaustive\ CommandParser(cli()?).parse(_env.args, _env.vars)
       | let c: Command => run(_env.root, c)
       | let h: CommandHelp => _env.out.print(h.help_string())
       | let e: SyntaxError =>

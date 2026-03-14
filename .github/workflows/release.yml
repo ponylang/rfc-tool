@@ -12,7 +12,7 @@ jobs:
     name: Build and upload x86-64-unknown-linux-release to Cloudsmith
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/ponylang/shared-docker-ci-standard-builder:nightly
+      image: ghcr.io/ponylang/shared-docker-ci-standard-builder:release
     steps:
       - uses: actions/checkout@v6.0.2
       - name: Build and upload

@@ -32,8 +32,8 @@ jobs:
         with:
           entrypoint: send-announcement-to-pony-zulip
         env:
-          ZULIP_API_KEY: ${{ secrets.ZULIP_TOKEN }}
-          ZULIP_EMAIL: ${{ secrets.ZULIP_EMAIL }}
+          ZULIP_API_KEY: ${{ secrets.ZULIP_RELEASE_API_KEY }}
+          ZULIP_EMAIL: ${{ secrets.ZULIP_RELEASE_EMAIL }}
       - name: Last Week in Pony
         uses: docker://ghcr.io/ponylang/release-bot-action:0.6.4
         with:

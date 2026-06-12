@@ -10,7 +10,7 @@ COPY rfc-tool /src/rfc-tool/rfc-tool/
 
 WORKDIR /src/rfc-tool
 
-RUN make arch=x86-64 static=true linker=bfd \
+RUN make arch=x86-64 static=true \
  && make install
 
 FROM alpine:3.18

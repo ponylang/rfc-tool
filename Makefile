@@ -84,7 +84,7 @@ test: $(binary)
 		https://github.com/ponylang/ponyc/issues/0000 \
 		| diff -B tests/rfc-post.md -
 
-lint:
+lint: $(GEN_FILES)
 	$(FETCH_DEPS_WITH)
 	$(LINT_WITH) $(SRC_DIR)
 

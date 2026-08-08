@@ -7,6 +7,7 @@ APPLICATION := rfc-tool
 COMPILE_WITH :=  corral run -- ponyc
 FETCH_DEPS_WITH := corral fetch
 CLEAN_DEPS_WITH := corral clean
+LINT_WITH := corral run -- pony-lint
 DEPS_DIR := .deps
 
 BUILD_DIR ?= build/$(config)
@@ -83,6 +84,10 @@ test: $(binary)
 		https://github.com/ponylang/ponyc/issues/0000 \
 		| diff -B tests/rfc-post.md -
 
+lint: $(GEN_FILES)
+	$(FETCH_DEPS_WITH)
+	$(LINT_WITH) $(SRC_DIR)
+
 clean:
 	$(CLEAN_DEPS_WITH)
 	rm -rf $(BUILD_DIR) $(GEN_FILES)
@@ -92,4 +97,4 @@ all: test $(binary)
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-.PHONY: all clean install test
+.PHONY: all clean install lint test

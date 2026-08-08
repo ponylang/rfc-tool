@@ -1,6 +1,10 @@
 use "peg"
 
 primitive RFCParser
+  """
+  PEG grammar for parsing RFC front-matter and body content.
+  """
+
   fun apply(): Parser val =>
     recover
       let header = feature() * start() * pr() * issue()
@@ -53,12 +57,36 @@ primitive RFCParser
     recover R('0', '9') end
 
 primitive Feature is Label
+  """
+  AST label for the RFC feature name field.
+  """
+
   fun text(): String => "Feature"
+
 primitive Start is Label
+  """
+  AST label for the RFC start date field.
+  """
+
   fun text(): String => "Start"
+
 primitive PR is Label
+  """
+  AST label for the RFC pull request URL field.
+  """
+
   fun text(): String => "PR"
+
 primitive Issue is Label
+  """
+  AST label for the Pony issue URL field.
+  """
+
   fun text(): String => "Issue"
+
 primitive Content is Label
+  """
+  AST label for the RFC body content.
+  """
+
   fun text(): String => "Content"

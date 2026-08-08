@@ -129,6 +129,10 @@ actor Main
     _env.out.print("error: " + message)
 
 class RFC
+  """
+  An RFC document with its metadata fields and body content.
+  """
+
   let feature: String
   let start: (U16, U8, U8)
   var tracking: ((String, String) | None)

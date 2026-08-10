@@ -2,6 +2,7 @@ CHANGELOG.md
 CODE_OF_CONDUCT.md
 rfc-post.md
 rfc-pre.md
+tests/**
 .claude/
 CLAUDE.md
 AGENTS.md
